@@ -1,0 +1,10 @@
+{application,inertia_phoenix,
+             [{applications,[kernel,stdlib,elixir,logger,phoenix_html,
+                             phoenix]},
+              {description,"Inertiajs adapter for Elixir Phoenix"},
+              {modules,['Elixir.InertiaPhoenix',
+                        'Elixir.InertiaPhoenix.Controller',
+                        'Elixir.InertiaPhoenix.Plug',
+                        'Elixir.InertiaPhoenix.View']},
+              {registered,[]},
+              {vsn,"0.2.8"}]}.
