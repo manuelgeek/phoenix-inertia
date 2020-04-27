@@ -24,7 +24,8 @@ defmodule InertiaWeb.UserController do
 
         conn
         |> put_flash(:sucess, "User created successfully.")
-        |> redirect(to: Routes.page_path(conn, :new))
+        |> add_session(user, user)
+        |> redirect(to: Routes.page_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
@@ -43,7 +44,6 @@ defmodule InertiaWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User updated successfully.")
-        |> add_session(user, user)
         |> redirect(to: Routes.user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->

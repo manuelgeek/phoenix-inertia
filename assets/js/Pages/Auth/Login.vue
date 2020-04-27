@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full max-w-xs  self-center">
         <div class="row-start-2 row-span-2 text-blue-600 text-center">
-            <h3 class="text-5xl">Login Page</h3> {{$page.success}}
+            <h3 class="text-5xl">Login Page</h3>
         </div>
         <flash-message/>
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="login">

@@ -17,8 +17,8 @@ defmodule InertiaWeb.Plugs.InertiaShare do
   end
 
   defp build_auth_map(conn) do
-    case %Plug.Conn{assigns: %{current_user: _current_user}} = conn do
-      %User{} = current_user ->
+    %Plug.Conn{assigns: %{current_user: current_user}} = conn
+    if current_user !== nil do
         %{
           user: %{
             id: current_user.id,
@@ -28,7 +28,7 @@ defmodule InertiaWeb.Plugs.InertiaShare do
           }
         }
 
-      _ ->
+    else
         %{}
     end
   end

@@ -38,6 +38,7 @@ defmodule Inertia.Accounts.User do
     |> validate_required([:email, :password, :name])
     |> unique_email
     |> validate_password(:password)
+    |> validate_confirmation(:password)
     |> put_pass_hash
   end
 
@@ -72,7 +73,7 @@ defmodule Inertia.Accounts.User do
 
   defp put_pass_hash(changeset), do: changeset
 
-  defp strong_password?(password) when byte_size(password) > 7 do
+  defp strong_password?(password) when byte_size(password) >= 6 do
     {:ok, password}
   end
 
