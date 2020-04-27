@@ -1,7 +1,6 @@
 defmodule InertiaWeb.Plugs.InertiaShare do
   @moduledoc false
   def init(default), do: default
-  alias Inertia.Accounts.User
   import Plug.Conn
   import Phoenix.Controller
 
@@ -10,6 +9,7 @@ defmodule InertiaWeb.Plugs.InertiaShare do
     |> InertiaPhoenix.share(:auth, build_auth_map(conn))
     |> InertiaPhoenix.share(:errors, errors_from_session(conn))
     |> InertiaPhoenix.share(:success, get_flash(conn, :success))
+    |> InertiaPhoenix.share(:plug_session, conn.private[:plug_session])
     |> InertiaPhoenix.share(:error, get_flash(conn, :error))
     |> delete_session(:errors)
     |> delete_session(:success)
@@ -18,18 +18,18 @@ defmodule InertiaWeb.Plugs.InertiaShare do
 
   defp build_auth_map(conn) do
     %Plug.Conn{assigns: %{current_user: current_user}} = conn
-    if current_user !== nil do
-        %{
-          user: %{
-            id: current_user.id,
-            name: current_user.name,
-            email: current_user.email,
-            avatar: current_user.avatar
-          }
-        }
 
+    if current_user !== nil do
+      %{
+        user: %{
+          id: current_user.id,
+          name: current_user.name,
+          email: current_user.email,
+          avatar: current_user.avatar
+        }
+      }
     else
-        %{}
+      %{}
     end
   end
 

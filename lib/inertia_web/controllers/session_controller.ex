@@ -33,13 +33,13 @@ defmodule InertiaWeb.SessionController do
         Sessions.delete_session(session)
         conn
         |> delete_session(:phauxth_session_id)
-        |> put_flash(:info, "User successfully logged out.")
+        |> put_flash(:success, "User successfully logged out.")
         |> redirect(to: Routes.session_path(conn, :new))
 
       _ ->
         conn
         |> put_flash(:error, "Unauthorized")
-        |> redirect(to: Routes.user_path(conn, :index))
+        |> redirect(to: Routes.page_path(conn, :index))
     end
   end
 
