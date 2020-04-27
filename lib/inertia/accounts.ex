@@ -56,6 +56,12 @@ defmodule Inertia.Accounts do
     |> Repo.update()
   end
 
+  def update_avatar(%User{} = user, attrs) do
+    user
+    |> User.img_changeset(attrs)
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a user.
   """
@@ -70,5 +76,11 @@ defmodule Inertia.Accounts do
   @spec change_user(User.t()) :: Ecto.Changeset.t()
   def change_user(%User{} = user) do
     User.changeset(user, %{})
+  end
+
+  def delete_file(%User{} = user) do
+    if user.avatar !== nil do
+      File.rm("priv/static/" <> user.avatar)
+    end
   end
 end

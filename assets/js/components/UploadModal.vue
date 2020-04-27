@@ -54,7 +54,7 @@
                         type="file"
                         :class="[
               'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ',
-              $page.errors.photo ? 'border-red-500' : ''
+              $page.errors.img_file ? 'border-red-500' : ''
             ]"
                         accept="image/*"
                         @change="handleUploadChange"
@@ -62,8 +62,8 @@
                     <label class="custom-file-label" for="uploadFile">
                         Drop Files Here to upload
                     </label>
-                    <p v-if="$page.errors.photo" class="text-red-500 text-xs italic">
-                        {{ $page.errors.photo[0] }}
+                    <p v-if="$page.errors.img_file" class="text-red-500 text-xs italic">
+                        {{ $page.errors.img_file[0] }}
                     </p>
                 </div>
 
@@ -138,7 +138,7 @@
                 }
                 this.button = 'Uploading ...'
                 const bodyFormData = new FormData()
-                bodyFormData.append('photo', this.file)
+                bodyFormData.append('img_file', this.file)
 
                 this.$inertia.post('/avatar', bodyFormData)
                     .then(() => {

@@ -17,6 +17,7 @@ defmodule InertiaWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController, only: [:new, :create]
+    post "/avatar", UserController, :avatar
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 end

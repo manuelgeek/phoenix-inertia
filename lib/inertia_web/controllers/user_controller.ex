@@ -8,9 +8,8 @@ defmodule InertiaWeb.UserController do
   alias Phauxth.Log
   alias Inertia.{Accounts, Accounts.User}
 
-
   # the following plugs are defined in the controllers/authorize.ex file
-#   plug :user_check when action in [:index, :show]
+  plug :user_check when action in [:avatar]
 
   def new(conn, _) do
     render_inertia(conn, "Auth/Register")
@@ -21,7 +20,6 @@ defmodule InertiaWeb.UserController do
       {:ok, user} ->
         Log.info(%Log{user: user.id, message: "user created"})
 
-
         conn
         |> put_flash(:sucess, "User created successfully.")
         |> add_session(user, user)
@@ -31,6 +29,21 @@ defmodule InertiaWeb.UserController do
         conn
         |> put_session(:errors, errors_from_changeset(changeset))
         |> redirect(to: Routes.user_path(conn, :new))
+    end
+  end
+
+  def avatar(%Plug.Conn{assigns: %{current_user: user}} = conn, params) do
+    case Accounts.update_avatar(user, params) do
+      {:ok, _user} ->
+        Accounts.delete_file(user)
+        conn
+        |> put_flash(:success, "User Avatar successfully updated")
+        |> redirect(to: Routes.page_path(conn, :index))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        conn
+        |> put_session(:errors, errors_from_changeset(changeset))
+        |> redirect(to: Routes.page_path(conn, :index))
     end
   end
 
