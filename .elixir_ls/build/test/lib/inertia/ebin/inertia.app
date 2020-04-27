@@ -30,7 +30,8 @@
                         'Elixir.InertiaWeb.SessionView',
                         'Elixir.InertiaWeb.UserController',
                         'Elixir.InertiaWeb.UserSocket',
-                        'Elixir.InertiaWeb.UserView']},
+                        'Elixir.InertiaWeb.UserView',
+                        'Elixir.InertiaWeb.Utils']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Inertia.Application',[]}}]}.

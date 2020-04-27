@@ -2,19 +2,18 @@ defmodule InertiaWeb.UserController do
   use InertiaWeb, :controller
 
   import InertiaWeb.Authorize
+  import InertiaWeb.Utils
   alias Inertia.Sessions
 
   alias Phauxth.Log
   alias Inertia.{Accounts, Accounts.User}
 
+
   # the following plugs are defined in the controllers/authorize.ex file
 #   plug :user_check when action in [:index, :show]
 
   def new(conn, _) do
-    render_inertia(conn, "Auth/Login",
-    props: %{
-        changeset: Accounts.change_user(%User{})
-      })
+    render_inertia(conn, "Auth/Register")
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -28,7 +27,9 @@ defmodule InertiaWeb.UserController do
         |> redirect(to: Routes.page_path(conn, :new))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> put_session(:errors, errors_from_changeset(changeset))
+        |> redirect(to: Routes.user_path(conn, :new))
     end
   end
 
