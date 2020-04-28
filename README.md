@@ -7,6 +7,7 @@
  
  ## Table of contents
  - [Set Up](#set-up)
+ - [Tech Stack](#tech-stack)
  - [Features](#features)
  - [Screenshot](#screenshot)
  - [Resources](#resources)
@@ -26,6 +27,12 @@ To start your Phoenix server:
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+## Tech Stack
+- Phoenix Framework
+- Vue Js
+- Tailwind CSS
+- Inertia JS
 
 ## Features 
 
