@@ -1,4 +1,20 @@
-# Inertia
+<p align="center"><img src="https://magak.me/assets/images/Geek-logo.png" width="150"></p>
+
+
+## About Phoenix Inertia
+
+ This is a sample Laravel project to illustrate Creating SPA with Inertia JS
+ 
+ ## Table of contents
+ - [Set Up](#set-up)
+ - [Features](#features)
+ - [Screenshot](#screenshot)
+ - [Resources](#resources)
+ - [About Me](#about-me)
+ - [Licence](#licence)
+
+## Set Up
+Fork and Clone the project;
 
 To start your Phoenix server:
 
@@ -11,10 +27,40 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-## Learn more
+## Features 
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+* Register
+* Login
+* Update Avatar
+* CRUD
+* Pagination
+
+## Screenshot
+
+<p align="center"><img src="register-inertia.png" width="800" alt="img"></p>
+
+
+<p align="center"><img src="home-inertia.png" width="800" alt="img"></p>
+
+
+## Resources
+
+ - [Inertia](https://inertiajs.com/)
+ - [Phoenix Inertia](https://github.com/devato/inertia_phoenix)
+ - [Vue Js Inertia](https://github.com/inertiajs/inertia-vue)
+
+
+## About Me
+
+[Magak Emmanuel](https://magak.me)
+
+## License
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](#)
+
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source-200x33.png?v=103)](#)
+
+
+Happy coding, Star before Fork 😊💪💯
+
+
