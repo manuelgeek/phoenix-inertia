@@ -37,10 +37,10 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Screenshot
 
-<p align="center"><img src="register-inertia.png" width="800" alt="img"></p>
+<p align="center"><img src="inertia1.png" width="800" alt="img"></p>
 
 
-<p align="center"><img src="home-inertia.png" width="800" alt="img"></p>
+<p align="center"><img src="inertia2.png" width="800" alt="img"></p>
 
 
 ## Resources
